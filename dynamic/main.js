@@ -2,6 +2,7 @@ require.config({
 	baseUrl: "http://jogoshugh.github.com/AgileWordPointsGame/dynamic"
 });
 
+/*
 requirejs.config({
 	shim: {
 		'handlebars' : {
@@ -9,6 +10,8 @@ requirejs.config({
 		}
 	}
 });
+*/
+
 
 /*
 require(['handlebars', 'boot'], function(Handlebars, boot) {
