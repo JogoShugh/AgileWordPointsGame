@@ -4,6 +4,7 @@ require.config({
 
 console.log(require);
 
+/*
 requirejs.config({
 	shim: {
 		'handlebars' : {
@@ -11,8 +12,9 @@ requirejs.config({
 		}
 	}
 });
+*/
 
-require('handlebars', 'boot', function(Handlebars, boot) {
+require('http://jogoshugh.github.com/AgileWordPointsGame/dynamic/handlebars.js', 'boot', function(Handlebars, boot) {
 	document.write("Hello from boot");
 	console.log(Handlebars);
 });
