@@ -2,7 +2,7 @@ require.config({
 	baseUrl: "http://jogoshugh.github.com/AgileWordPointsGame/dynamic"
 });
 
-console.log(require);
+alert('hello');
 
 requirejs.config({
 	shim: {
