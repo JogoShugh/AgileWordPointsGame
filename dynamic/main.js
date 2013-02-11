@@ -10,7 +10,7 @@ requirejs.config({
 	},
 	config: {
 		text: {
-			useXhr: function () { return true; }
+			useXhr: function () { return false;}
 		}
 	}
 
