@@ -8,8 +8,10 @@ requirejs.config({
 			exports: 'Handlebars'
 		}
 	},
-	text: {
-		useXhr: function () { return true; }
+	config: {
+		text: {
+			useXhr: function () { return true; }
+		}
 	}
 
 });
