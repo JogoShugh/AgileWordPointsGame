@@ -1,6 +1,5 @@
 define(function() {
-return 
-'<p>Welcome to {{title}}!\
+var val = '<p>Welcome to {{title}}!\
 	The current API adopters are:\
 \
 	<ul>\
@@ -9,4 +8,6 @@ return
 	{{/each}}\
 	</ul>\
 </p>';
+console.log(val);
+return val;
 });
