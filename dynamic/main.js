@@ -1,5 +1,10 @@
 require.config({
-	baseUrl: "http://jogoshugh.github.com/AgileWordPointsGame/dynamic"
+	baseUrl: "http://jogoshugh.github.com/AgileWordPointsGame/dynamic",
+	config: {
+		text: {
+			useXhr: function () { return true; }
+		}
+	}
 });
 
 requirejs.config({
