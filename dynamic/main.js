@@ -1,10 +1,5 @@
 require.config({
-	baseUrl: "http://jogoshugh.github.com/AgileWordPointsGame/dynamic",
-	config: {
-		text: {
-			useXhr: function () { return true; }
-		}
-	}
+	baseUrl: "http://jogoshugh.github.com/AgileWordPointsGame/dynamic"
 });
 
 requirejs.config({
@@ -12,7 +7,11 @@ requirejs.config({
 		'handlebars' : {
 			exports: 'Handlebars'
 		}
+	},
+	text: {
+		useXhr: function () { return true; }
 	}
+
 });
 
 require(['handlebars', 'boot', 'text!hello.html.js'], function(hb, boot, helloTmpl) {
