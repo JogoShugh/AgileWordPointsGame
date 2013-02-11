@@ -1,4 +1,4 @@
-requirejs.confg({
+requirejs.config({
 	shim: {
 		'handlebars' : {
 			exports: 'Handlebars'
