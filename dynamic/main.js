@@ -10,7 +10,7 @@ requirejs.config({
 	}
 });
 
-require(['handlebars', 'boot', 'text!hello.html'], function(hb, boot, helloTmpl) {
+require(['handlebars', 'boot', 'text!./hello.html'], function(hb, boot, helloTmpl) {
 	var context = {title: 'VersionOne', folks: ['Mark K', 'Mark I', 'Acey B']};
 	var template = Handlebars.compile(helloTmpl);
 	var output = template(context);
