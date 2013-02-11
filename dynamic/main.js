@@ -1,3 +1,7 @@
+require.config({
+	baseUrl: "http://jogoshugh.github.com/AgileWordPointsGame/dynamic"
+});
+
 requirejs.config({
 	shim: {
 		'handlebars' : {
