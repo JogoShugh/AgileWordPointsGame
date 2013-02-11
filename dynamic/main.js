@@ -12,7 +12,7 @@ requirejs.config({
 
 
 require(['handlebars', 'boot'], function(hb, boot) {
-	console.log(hb);
+	console.log(Handlebars);
 	console.log('Boot loaded.');
 });
 
