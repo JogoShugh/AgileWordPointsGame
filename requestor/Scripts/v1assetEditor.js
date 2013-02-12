@@ -603,6 +603,7 @@
         }
         dto = this.createDto();
         payload = v1json.json2xml(dto);
+        console.log(payload);
         request = this.createRequest({
           url: url,
           type: "POST",
