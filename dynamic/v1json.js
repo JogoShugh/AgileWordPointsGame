@@ -1,5 +1,4 @@
-define(function()
-{
+define(function(){
 function jsonClean(original) {
     var obj = {
         "_links": {
@@ -9,7 +8,6 @@ function jsonClean(original) {
             }
         }
     }
-
 
     if (original._type == 'Asset') {
         for (var key in original.Attributes) {
@@ -44,6 +42,7 @@ function json2xml(obj) {
 	}
 	for (var key in obj._links)
 	{
+		if (key == 'self') continue;
 		var item = obj._links[key];
 		var isArray = Object.prototype.toString.call(item) === '[object Array]';
 		if (!isArray) {
@@ -61,5 +60,4 @@ return {
 	json2xml: json2xml
 	
 };
-
 });
