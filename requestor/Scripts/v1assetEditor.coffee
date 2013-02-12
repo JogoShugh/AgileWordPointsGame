@@ -442,10 +442,13 @@ define ["backbone", "underscore", "toastr", "jquery", "v1json", "jquery.mobile",
       dto = @createDto()
       debug "Dto:"
       debug dto
+      payload = v1json.json2xml(JSON.stringify(dto))
+      console.log 'Payload:'
+      console.log payload
       request = @createRequest(
         url: url
         type: "POST"
-        data: v1json.json2xml(JSON.stringify(dto))
+        data: payload
         # contentType: @contentType
       )
       $.ajax(request).done((data) =>

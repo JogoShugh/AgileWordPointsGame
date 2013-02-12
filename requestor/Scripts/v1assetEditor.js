@@ -592,7 +592,7 @@
       };
 
       VersionOneAssetEditor.prototype.saveAsset = function(url, eventType, callback) {
-        var dto, request, validations,
+        var dto, payload, request, validations,
           _this = this;
         validations = this.form.validate();
         if (validations != null) {
@@ -604,10 +604,13 @@
         dto = this.createDto();
         debug("Dto:");
         debug(dto);
+        payload = v1json.json2xml(JSON.stringify(dto));
+        console.log('Payload:');
+        console.log(payload);
         request = this.createRequest({
           url: url,
           type: "POST",
-          data: v1json.json2xml(JSON.stringify(dto))
+          data: payload
         });
         return $.ajax(request).done(function(data) {
           data = v1json.jsonClean(data);
