@@ -1,4 +1,4 @@
-define ["backbone", "underscore", "toastr", "jquery", "jquery.mobile", "jsrender"], (Backbone, _, toastr, $) ->
+define ["backbone", "underscore", "toastr", "jquery", "jquery.mobile", "jsrender", "v1json"], (Backbone, _, toastr, $) ->
   log = (message) ->
     console.log message
 
@@ -44,11 +44,12 @@ define ["backbone", "underscore", "toastr", "jquery", "jquery.mobile", "jsrender
           @[key] = options[key]      
         @initialize()
       
-      contentType = "haljson"
+      contentType = "application/json"
       debugEnabled = options.showDebug
       
       if options.serviceGateway
         $.ajax(options.serviceGateway).done((data) ->
+          data = v1json.jsonClean(data)
           options.headers = data
           continueSettingOptions()
         ).fail (ex) ->
@@ -124,6 +125,7 @@ define ["backbone", "underscore", "toastr", "jquery", "jquery.mobile", "jsrender
         request = @createRequest(url: url)
         projects = $("#projects")
         ajaxRequest = $.ajax(request).done((data) =>
+          data = v1json.jsonClean(data)
           ajaxRequest = null
           projects = $("#projects").empty()
           for val in data
@@ -181,6 +183,7 @@ define ["backbone", "underscore", "toastr", "jquery", "jquery.mobile", "jsrender
       assets = $("#assets")
       assets.empty()
       $.ajax(request).done((data) =>
+        data = v1json.jsonClean(data)
         info "Found " + data.length + " requests"
         for item, i in data
           @listAppend item
@@ -318,6 +321,7 @@ define ["backbone", "underscore", "toastr", "jquery", "jquery.mobile", "jsrender
           type: "GET"
         )
         ajaxRequest = $.ajax(request).done((data) =>
+          data = v1json.jsonClean(data)
           if data.length > 0
             for option in data
               field.options.push
@@ -438,10 +442,11 @@ define ["backbone", "underscore", "toastr", "jquery", "jquery.mobile", "jsrender
       request = @createRequest(
         url: url
         type: "POST"
-        data: JSON.stringify(dto)
-        contentType: @contentType
+        data: v1json.json2xml(JSON.stringify(dto))
+        # contentType: @contentType
       )
       $.ajax(request).done((data) =>
+        data = v1json.jsonClean(data)
         @trigger eventType, @, data
         callback data if callback
       ).fail @_ajaxFail
