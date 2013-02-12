@@ -19,9 +19,10 @@ requirejs.config({
     }
 });
 
-require([       
+require([
+        'text!index.html'       
         'config',
-	    'v1assetEditor',
+	    'require',
         'jquery',
         'backbone',
         'backbone-forms',
@@ -31,16 +32,18 @@ require([
         'jsrender'
     ],
     function(
+        indexHtml,
         v1config,
-        v1assetEditor,
+        require,
         $)
     {
-        $.mobile.initializePage();            
-        window.v1AssetEditor = new v1assetEditor(v1config);
-        window.v1AssetEditor.on("assetFormCreated", function(assetForm) {
-            window.v1RequestForm = assetForm;
+        document.body.append($(indexHtml));
+        require(['v1assetEditor'], function(v1assetEditor) {
+            $.mobile.initializePage();            
+            window.v1AssetEditor = new v1assetEditor(v1config);
+            window.v1AssetEditor.on("assetFormCreated", function(assetForm) {
+                window.v1RequestForm = assetForm;
+            });
         });
-        console.log(window.v1AssetEditor);
-        console.log(window.v1RequestForm);
 	}
 );
