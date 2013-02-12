@@ -357,7 +357,7 @@ define ["backbone", "underscore", "toastr", "jquery", "v1json", "jquery.mobile",
 
       asset = @createFetchModel url
 
-      asset.exec().done(=>
+      asset.exec().done( (data) =>
         modelData = {}
         model = new @assetFormModel().schema
         links = asset.get('_links')
@@ -417,6 +417,9 @@ define ["backbone", "underscore", "toastr", "jquery", "v1json", "jquery.mobile",
         url: url
         exec: ->
           return @fetch(options)
+        parse: (data) ->
+          return v1json.jsonClean(data)
+
 
       fetchModel = Backbone.Model.extend(props)
 

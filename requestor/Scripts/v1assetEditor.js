@@ -487,7 +487,7 @@
         fieldsClause = this.getFormFieldsForSelectQuery();
         url += "&" + fieldsClause;
         asset = this.createFetchModel(url);
-        return asset.exec().done(function() {
+        return asset.exec().done(function(data) {
           var id, key, links, model, modelData, rel, val, value;
           modelData = {};
           model = new _this.assetFormModel().schema;
@@ -570,6 +570,9 @@
           url: url,
           exec: function() {
             return this.fetch(options);
+          },
+          parse: function(data) {
+            return v1json.jsonClean(data);
           }
         };
         fetchModel = Backbone.Model.extend(props);
