@@ -20,7 +20,7 @@ requirejs.config({
 });
 
 require([
-        'text!index.html'       
+        'text!index.html',     
         'config',
 	    'require',
         'jquery',
