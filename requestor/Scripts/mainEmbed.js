@@ -35,6 +35,8 @@ require([
         v1assetEditor,
         $)
     {
+        console.log(v1assetEditor);
+        
         $(document).ready(function () {
             $.mobile.initializePage();            
             window.v1AssetEditor = new v1assetEditor(v1config);
