@@ -21,7 +21,7 @@ requirejs.config({
 
 require([       
         'config',
-	'v1assetEditor',
+	    'v1assetEditor',
         'jquery',
         'backbone',
         'backbone-forms',
@@ -36,11 +36,13 @@ require([
         $)
     {
         $(document).ready(function () {
-            $.mobile.initializePage();
+            $.mobile.initializePage();            
             window.v1AssetEditor = new v1assetEditor(v1config);
             window.v1AssetEditor.on("assetFormCreated", function(assetForm) {
-                window.vRequestForm = assetForm;
+                window.v1RequestForm = assetForm;
             });
+            console.log(window.v1AssetEditor);
+            console.log(window.v1RequestForm);
         });
 	}
 );

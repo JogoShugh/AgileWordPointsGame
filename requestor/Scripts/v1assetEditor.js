@@ -37,9 +37,9 @@
       });
     };
     $("#projectsPage").live("pageinit", function() {
-      $.mobile.loading('show');
-      $('#bodyDiv').css('visibility', 'visible').hide().fadeIn('slow');
-      return $.mobile.loading('hide');
+      //$.mobile.loading('show');
+      //$('#bodyDiv').css('visibility', 'visible').hide().fadeIn('slow');
+      //return $.mobile.loading('hide');
     });
     VersionOneAssetEditor = (function() {
 
