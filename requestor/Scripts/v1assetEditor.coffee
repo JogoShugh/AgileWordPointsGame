@@ -36,9 +36,9 @@ define ["backbone", "underscore", "toastr", "jquery", "v1json", "jquery.mobile",
     constructor: (options) ->          
       continueSettingOptions = =>
         options.whereParamsForProjectScope =
-          acceptFormat: contentType
+          accept: contentType
           sel: ""
-        options.queryOpts = acceptFormat: contentType
+        options.queryOpts = accept: contentType
         options.contentType = contentType      
         for key of options
           @[key] = options[key]      
