@@ -440,14 +440,7 @@ define ["backbone", "underscore", "toastr", "jquery", "v1json", "jquery.mobile",
           positionClass: "toast-bottom-right"
         return
       dto = @createDto()
-      debug "Dto:"
-      debug dto
-      stringifiedDto = JSON.stringify(dto)
-      console.log 'Stringified:'
-      console.log stringifiedDto
-      payload = v1json.json2xml(stringifiedDto)
-      console.log 'Payload:'
-      console.log payload
+      payload = v1json.json2xml(dto)
       request = @createRequest(
         url: url
         type: "POST"
