@@ -36,7 +36,7 @@ function json2xml(obj) {
 		var item = obj[key];
 		if (item == null) item = "";
 		if (key == "_links") continue;
-		var attr = '\t<Attribute name="' + key + '" act="set">' + item + '</Attribute>\n';
+		var attr = '\t<Attribute name="' + key + '" act="set"><![CDATA[' + item + ']]></Attribute>\n';
 		doc += attr;
 
 	}
