@@ -63,8 +63,8 @@ function json2xml(obj) {
 		var item = obj._links[key];
 		var isArray = Object.prototype.toString.call(item) === '[object Array]';
 		if (!isArray) {
-			var rel = '\t<Relation name="' + key + '" idref="' + item.idref +
-			'" act="set" />\n';
+			var rel = '\t<Relation name="' + key + '" act="set">' +
+                '<Asset idref="' + item.idref +'"/></Relation>';
 			doc += rel;
 		}
 	}
