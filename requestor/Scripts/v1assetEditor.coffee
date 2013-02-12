@@ -442,7 +442,10 @@ define ["backbone", "underscore", "toastr", "jquery", "v1json", "jquery.mobile",
       dto = @createDto()
       debug "Dto:"
       debug dto
-      payload = v1json.json2xml(JSON.stringify(dto))
+      stringifiedDto = JSON.stringify(dto)
+      console.log 'Stringified:'
+      console.log stringifiedDto
+      payload = v1json.json2xml(stringifiedDto)
       console.log 'Payload:'
       console.log payload
       request = @createRequest(
