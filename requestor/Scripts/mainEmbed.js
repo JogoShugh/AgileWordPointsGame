@@ -37,7 +37,7 @@ require([
         require,
         $)
     {
-        document.body.append($(indexHtml));
+        $('body').append($(indexHtml));
         require(['v1assetEditor'], function(v1assetEditor) {
             $.mobile.initializePage();            
             window.v1AssetEditor = new v1assetEditor(v1config);
