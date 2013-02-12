@@ -441,6 +441,7 @@ define ["backbone", "underscore", "toastr", "jquery", "v1json", "jquery.mobile",
         return
       dto = @createDto()
       payload = v1json.json2xml(dto)
+      console.log payload
       request = @createRequest(
         url: url
         type: "POST"
