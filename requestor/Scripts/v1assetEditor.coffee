@@ -1,4 +1,4 @@
-define ["backbone", "underscore", "toastr", "jquery", "jquery.mobile", "jsrender", "v1json"], (Backbone, _, toastr, $) ->
+define ["backbone", "underscore", "toastr", "jquery", "v1json", "jquery.mobile", "jsrender"], (Backbone, _, toastr, $, v1json) ->
   log = (message) ->
     console.log message
 
