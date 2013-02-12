@@ -1,17 +1,17 @@
 define(function(){
-function jsonClean(original) {
-    var obj = {
-        "_links": {
-            "self": {
-                "href": original.href,
-                "id": original.id
-            }
-        }
-    }
 
-    if (original._type == 'Asset') {
-        for (var key in original.Attributes) {
-            var item = original.Attributes[key];
+function jsonClean(original) {
+    function processAsset(asset) {   
+        var obj = {
+            "_links": {
+                "self": {
+                    "href": asset.href,
+                    "id": asset.id
+                }
+            }
+        };
+        for (var key in asset.Attributes) {
+            var item = asset.Attributes[key];
             if (item._type == "Attribute") {
                 obj[item.name] = item.value;
             } else if (item._type == "Relation") {
@@ -25,8 +25,25 @@ function jsonClean(original) {
                 }
             }
         }
+        return obj;
     }
-    return obj;
+
+    var results = [];
+
+    if (original._type == 'Asset') {
+        results.push(processAsset(original));
+    }
+
+    if (original._type == 'Assets') {
+        for(var i = 0; i < original.Assets.length; i++) {
+            var asset = original.Assets[i];
+            results.push(processAsset(asset));
+        }
+    }
+
+    if (results.length < 1) return results;
+    if (original._type == 'Asset') return results[0];
+    return results;
 }
 
 function json2xml(obj) {
