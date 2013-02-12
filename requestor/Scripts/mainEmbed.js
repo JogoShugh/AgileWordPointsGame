@@ -35,16 +35,12 @@ require([
         v1assetEditor,
         $)
     {
-        console.log(v1assetEditor);
-        
-        $(document).ready(function () {
-            $.mobile.initializePage();            
-            window.v1AssetEditor = new v1assetEditor(v1config);
-            window.v1AssetEditor.on("assetFormCreated", function(assetForm) {
-                window.v1RequestForm = assetForm;
-            });
-            console.log(window.v1AssetEditor);
-            console.log(window.v1RequestForm);
+        $.mobile.initializePage();            
+        window.v1AssetEditor = new v1assetEditor(v1config);
+        window.v1AssetEditor.on("assetFormCreated", function(assetForm) {
+            window.v1RequestForm = assetForm;
         });
+        console.log(window.v1AssetEditor);
+        console.log(window.v1RequestForm);
 	}
 );
