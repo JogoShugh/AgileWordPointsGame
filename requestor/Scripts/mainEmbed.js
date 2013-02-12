@@ -1,5 +1,5 @@
 require.config({
-	baseUrl: 'https://raw.github.com/versionone/VersionOne.Requestor.NET/master/VersionOne.FeatureRequestor/dynamic/Scripts'
+	baseUrl: 'https://raw.github.com/JogoShugh/AgileWordPointsGame/gh-pages/requestor/Scripts'
 });
 
 requirejs.config({
@@ -21,8 +21,8 @@ requirejs.config({
 
 require([       
         'config',
+	'v1assetEditor',
         'jquery',
-	    'require',
         'backbone',
         'backbone-forms',
         'editors/list',
