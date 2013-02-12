@@ -49,11 +49,11 @@
         continueSettingOptions = function() {
           var key;
           options.whereParamsForProjectScope = {
-            acceptFormat: contentType,
+            accept: contentType,
             sel: ""
           };
           options.queryOpts = {
-            acceptFormat: contentType
+            accept: contentType
           };
           options.contentType = contentType;
           for (key in options) {
